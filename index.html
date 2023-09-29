@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <section class="weather">
+      <div class="search-div">
+        <input
+          class="search-inp"
+          type="text"
+          placeholder="Enter a City"
+          id="city"
+        />
+        <button class="search-btn" id="searchBtn">
+          <img src="../images/icons8-search.svg" /> Search
+        </button>
+      </div>
+
+      <div class="temp-div">
+        <h3 id="cityName">City</h3>
+        <h1 id="temp">Temp°C</h1>
+        <p id="feels-like">feels like</p>
+      </div>
+      <div class="weather-info-div">
+        <div class="wind-div">
+          <img width="16" height="16" src="./images/wind.png" alt="wind" />
+          <p id="wind">Wind</p>
+        </div>
+        <div>
+          <img
+            class="icon"
+            width="16"
+            height="16"
+            src="./images/humidity.png"
+            alt="wind"
+          />
+          <p id="humidity">Humidity</p>
+        </div>
+        <div>
+          <img
+            class="icon"
+            width="16"
+            height="16"
+            src="./images/weather-news.png"
+            alt="wind"
+          />
+          <p id="weatherDesc">Description</p>
+        </div>
+        <div>
+          <img
+            class="icon"
+            width="16"
+            height="16"
+            src="./images/cloudy.png"
+            alt="weather"
+          />
+          <p id="pressure">Pressure</p>
+        </div>
+        <div>
+          <img
+            class="icon"
+            width="16"
+            height="16"
+            src="./images/clouds.png"
+            alt="weather"
+          />
+          <p id="clouds">Clouds</p>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
