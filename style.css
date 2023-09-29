@@ -103,9 +103,18 @@ body {
   /* justify-content: space-evenly; */
 }
 #cityName {
-  font-size: 30px;
+  font-size: 70px;
   font-weight: bold;
-  color: rgb(4, 60, 144);
+  background: linear-gradient(
+    45deg,
+    rgb(255, 133, 231) 0%,
+    rgba(252, 88, 121, 1) 60%,
+    rgba(253, 253, 253, 1) 100%
+  );
+  /* color: #fc5879; */
+  background-clip: text;
+  -webkit-background-clip: text; /* For older WebKit browsers */
+  color: transparent;
   display: none;
   margin-top: 30px;
 }
@@ -250,12 +259,12 @@ body {
 @media screen and (max-width: 768px) {
   .temperature-container {
     margin-top: 30px;
-    display: flex;
+    /* display: flex;
     flex-direction: column-reverse;
-    align-items: center;
+    align-items: center; */
     width: 80%;
-
-    justify-content: space-evenly;
+    gap: 15px;
+    justify-content: space-between;
   }
 
   .weather-info-div {
