@@ -50,7 +50,7 @@ async function fetchWeatherData(city) {
         bodyElement.style.background = `url("https://images.unsplash.com/photo-1616249807402-9dae436108cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80") center / cover no-repeat`;
       }
       if (data.weather[0].main == "Rain") {
-        bodyElement.style.background = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),url("https://images.unsplash.com/photo-1433863448220-78aaa064ff47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80") center / cover no-repeat`;
+        bodyElement.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://images.unsplash.com/photo-1433863448220-78aaa064ff47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80") center / cover no-repeat`;
       }
       if (data.weather[0].main == "Mist" || data.weather[0].main == "Fog") {
         bodyElement.style.background = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80") center / cover no-repeat`;
@@ -121,7 +121,7 @@ async function gotLocation(position) {
       const data = await response.json();
 
       temperature.textContent = `${data.main.temp}`;
-      // document.getElementById("dropdown").style.display = "block";
+
       cityName.textContent = data.name;
       cityName.style.display = "block";
       humidity.textContent = `Humidity: ${data.main.humidity}%`;
