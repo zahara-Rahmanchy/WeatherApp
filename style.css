@@ -68,6 +68,19 @@ body {
   box-shadow: 2px 2px 5px #f9e6ff;
   cursor: pointer;
 }
+.location {
+  width: 150px;
+  background-color: #c731fb;
+  box-shadow: 2px 2px 5px #f9e6ff;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50px;
+  border: 0;
+  outline: 0;
+  height: 60px;
+  padding: 5px;
+  color: white;
+}
 
 .search-btn img {
   width: 30px;

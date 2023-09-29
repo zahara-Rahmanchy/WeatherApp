@@ -20,16 +20,8 @@
           <img src="../images/icons8-search.svg" /> Search
         </button>
       </div>
-      <h3 id="cityName">City</h3>
-      <!-- temperat -->
-      <section class="temperature-container">
-        <div class="temp-div">
-          <div class="temperature">
-            <h1 id="temp">Temp</h1>
-            <h1 id="unit">°C</h1>
-          </div>
-          <p id="feels-like">feels like</p>
-        </div>
+      <div class="temperature-container">
+        <button class="location" onclick="geoloc()">Location</button>
         <div id="dropdown">
           <button class="btn">Convert</button>
           <div class="dropdown-content">
@@ -40,7 +32,17 @@
             <button onclick="convertFahrenheitToCelsius()">Celsius</button>
           </div>
         </div>
-      </section>
+      </div>
+      <h3 id="cityName">City</h3>
+      <!-- temperat -->
+
+      <div class="temp-div">
+        <div class="temperature">
+          <h1 id="temp">Temp</h1>
+          <h1 id="unit">°C</h1>
+        </div>
+        <p id="feels-like">feels like</p>
+      </div>
 
       <!-- converison -->
 
