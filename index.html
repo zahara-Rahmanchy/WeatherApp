@@ -20,12 +20,31 @@
           <img src="../images/icons8-search.svg" /> Search
         </button>
       </div>
+      <h3 id="cityName">City</h3>
+      <!-- temperat -->
+      <section class="temperature-container">
+        <div class="temp-div">
+          <div class="temperature">
+            <h1 id="temp">Temp</h1>
+            <h1 id="unit">°C</h1>
+          </div>
+          <p id="feels-like">feels like</p>
+        </div>
+        <div id="dropdown">
+          <button class="btn">Convert</button>
+          <div class="dropdown-content">
+            <button onclick="convertCelsiusToFahrenheit()" class="dropbtn">
+              Fahrenheit
+            </button>
 
-      <div class="temp-div">
-        <h3 id="cityName">City</h3>
-        <h1 id="temp">Temp°C</h1>
-        <p id="feels-like">feels like</p>
-      </div>
+            <button onclick="convertFahrenheitToCelsius()">Celsius</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- converison -->
+
+      <p class="error"></p>
       <div class="weather-info-div">
         <div class="wind-div">
           <img width="16" height="16" src="./images/wind.png" alt="wind" />

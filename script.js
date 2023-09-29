@@ -17,20 +17,25 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchWeatherData(cityInput);
   });
 
-  function fetchWeatherData(city) {
+  async function fetchWeatherData(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&units=metric`;
 
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        console.log(data.name);
+    try {
+      const response = await fetch(apiUrl);
+      //   error
+      if (response.status === 404) {
+        document.querySelector(".error").innerHTML =
+          "Error! Please enter valid city name";
+        document.querySelector(".error").style.display = "block";
+      } else {
+        console.log(response);
+        const data = await response.json();
 
-        temperature.textContent = `${data.main.temp}°C`;
+        temperature.textContent = `${data.main.temp}`;
+        // document.getElementById("dropdown").style.display = "block";
         cityName.textContent = data.name;
         cityName.style.display = "block";
         humidity.textContent = `Humidity: ${data.main.humidity}%`;
-
         weatherDesc.textContent = `${data.weather[0].description}`;
         feelsLike.textContent = `Feels Like - ${data.main.feels_like}°C`;
         feelsLike.style.display = "block";
@@ -38,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         pressure.textContent = `Pressure: ${data.main.pressure} hpa`;
         clouds.textContent = `Clouds: ${data.clouds.all} %`;
 
-        if (data.weather[0].main == "Clouds") {
+        if (
+          data.weather[0].main == "Clouds" ||
+          data.weather[0].main == "Haze"
+        ) {
           bodyElement.style.background = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),url("https://images.unsplash.com/photo-1529832393073-e362750f78b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80") center / cover no-repeat`;
         }
         if (data.weather[0].main == "Clear") {
@@ -56,9 +64,44 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data.weather[0].main == "Drizzle") {
           bodyElement.style.background = `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2017/03/02/02/39/rocio-2110268_1280.jpg")center / cover no-repeat`;
         }
-      })
-      .catch(error => {
-        console.error("Error fetching weather data:", error);
-      });
+      }
+    } catch (error) {
+      document.querySelector(".error").innerHTML =
+        "Error fetching weather data,Please enter valid name";
+      document.querySelector(".error").style.display = "block";
+
+      console.error("Error fetching weather data:", error);
+    }
   }
 });
+
+function celsiusToFahrenheit(celsius) {
+  const fahrenheit = ((celsius * 9) / 5 + 32).toFixed(2);
+  return fahrenheit;
+}
+
+function fahrenheitToCelsius(fahrenheit) {
+  const celsius = (((fahrenheit - 32) * 5) / 9).toFixed(2);
+  return celsius;
+}
+
+function convertCelsiusToFahrenheit() {
+  const temperature = parseFloat(document.getElementById("temp").textContent);
+
+  if (document.getElementById("unit").textContent !== "°F") {
+    const result = `${celsiusToFahrenheit(temperature)}`;
+    document.getElementById("temp").textContent = result;
+    document.getElementById("unit").textContent = "°F";
+  }
+  return;
+}
+
+function convertFahrenheitToCelsius() {
+  const temperature = parseFloat(document.getElementById("temp").textContent);
+
+  if (document.getElementById("unit").textContent !== "°C") {
+    const result = `${fahrenheitToCelsius(temperature)}`;
+    document.getElementById("temp").textContent = result;
+    document.getElementById("unit").textContent = "°C";
+  }
+}
