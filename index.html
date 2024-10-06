@@ -8,89 +8,119 @@
     <title>Weather Forecast</title>
   </head>
   <body>
-    <section class="weather">
-      <div class="search-div">
-        <input
-          class="search-inp"
-          type="text"
-          placeholder="Enter a City"
-          id="city"
-        />
-        <button class="search-btn" id="searchBtn">
-          <img src="../images/icons8-search.svg" /> Search
-        </button>
-      </div>
-      <div class="btn-container">
-        <button class="location" onclick="geoloc()">Location</button>
-        <div id="dropdown">
-          <button class="btn">Convert</button>
-          <div class="dropdown-content">
-            <button onclick="convertCelsiusToFahrenheit()" class="dropbtn">
-              Fahrenheit
-            </button>
-
-            <button onclick="convertFahrenheitToCelsius()">Celsius</button>
-          </div>
+    <section class="weather overlay">
+      <div class="left-div">
+        <div class="search-div">
+          <input
+            class="search-inp"
+            type="text"
+            placeholder="Search by city"
+            id="city"
+          />
+          <button class="search-btn" id="searchBtn">
+            <img src="../images/search.png" />
+          </button>
+          <button class="location" onclick="geoloc()">
+            <img src="../images/destination.png" style="width: 40px" />
+            <p class="tooltip">Turn On Location</p>
+          </button>
         </div>
-      </div>
-      <h3 id="cityName">City</h3>
-      <!-- temperat -->
-
-      <div class="temp-div">
+        <div id="symbols">
+          <img id="sym-img" src="../images/sunny1.png" />
+          <p id="des"></p>
+        </div>
         <div class="temperature">
-          <h1 id="temp">Temp</h1>
-          <h1 id="unit">°C</h1>
+          <h1 id="temp">Temp <sup id="unit">°C</sup></h1>
+          <h3 id="cityName">City</h3>
+          <p id="feels-like">Feels like: --<sup id="unit">°C</sup></p>
         </div>
-        <p id="feels-like">feels like</p>
+        <!-- temperat -->
+        <!-- <div class="temp-div">
+          <p id="feels-like">feels like</p>
+          <h3 id="cityName">City</h3>
+        </div> -->
       </div>
+      <!-- 
+      
 
-      <!-- converison -->
+     converison -->
 
-      <p class="error"></p>
-      <div class="weather-info-div">
-        <div class="wind-div">
-          <img width="16" height="16" src="./images/wind.png" alt="wind" />
-          <p id="wind">Wind</p>
-        </div>
-        <div>
-          <img
-            class="icon"
-            width="16"
-            height="16"
-            src="./images/humidity.png"
-            alt="wind"
-          />
-          <p id="humidity">Humidity</p>
-        </div>
-        <div>
-          <img
-            class="icon"
-            width="16"
-            height="16"
-            src="./images/weather-news.png"
-            alt="wind"
-          />
-          <p id="weatherDesc">Description</p>
-        </div>
-        <div>
-          <img
-            class="icon"
-            width="16"
-            height="16"
-            src="./images/cloudy.png"
-            alt="weather"
-          />
-          <p id="pressure">Pressure</p>
-        </div>
-        <div>
-          <img
-            class="icon"
-            width="16"
-            height="16"
-            src="./images/clouds.png"
-            alt="weather"
-          />
-          <p id="clouds">Clouds</p>
+      <div class="weather-info-div" id="weather-info-div">
+        <!-- <div class="btn-container">
+          <div id="dropdown">
+            <button class="btn">Convert</button>
+            <div class="dropdown-content">
+              <button onclick="convertCelsiusToFahrenheit()" class="dropbtn">
+                Fahrenheit
+              </button>
+
+              <button onclick="convertFahrenheitToCelsius()">Celsius</button>
+            </div>
+          </div>
+        </div> -->
+        <p class="error"></p>
+        <p id="date">Date: _ _/_ _/_ _ _ _</p>
+        <p id="time">Time: _ _:_ _:_ _</p>
+        <div class="conditions">
+          <div class="wind-div item">
+            <div>
+              <img width="16" height="16" src="./images/wind.png" alt="wind" />
+              <p>Wind</p>
+            </div>
+            <p id="wind">-- meter/sec</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                class="icon"
+                width="16"
+                height="16"
+                src="./images/humidity.png"
+                alt="wind"
+              />
+              <p>Humidity</p>
+            </div>
+            <p id="humidity">-- %</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                class="icon"
+                width="16"
+                height="16"
+                src="./images/weather-news.png"
+                alt="wind"
+              />
+              <p>Description</p>
+            </div>
+            <p id="weatherDesc">---</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                class="icon"
+                width="16"
+                height="16"
+                src="./images/cloudy.png"
+                alt="weather"
+              />
+              <p>Pressure</p>
+            </div>
+            <p id="pressure">--- hPa</p>
+          </div>
+          <div class="item">
+            <div>
+              <img
+                class="icon"
+                width="16"
+                height="16"
+                src="./images/clouds.png"
+                alt="weather"
+              />
+              <p>Clouds</p>
+            </div>
+            <p id="clouds">-- %</p>
+          </div>
         </div>
       </div>
     </section>
