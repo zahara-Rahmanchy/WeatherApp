@@ -34,7 +34,7 @@ async function fetchWeatherData(city) {
       const data = await response.json();
       console.log(data);
       const date = convertUnixTimestamp(data.dt);
-      temperature.textContent = `${data.main.temp}`;
+      temperature.textContent = `${data.main.temp.toFixed(1)}°C`;
       console.log("temp: ", data.main.temp);
       // document.getElementById("dropdown").style.display = "block";
       datep.textContent = date.date;
@@ -44,7 +44,9 @@ async function fetchWeatherData(city) {
       humidity.textContent = `${data.main.humidity}%`;
       weatherDesc.textContent = `${data.weather[0].description}`;
       descip.textContent = `${data.weather[0].description}`;
-      feelsLike.textContent = `Feels Like - ${data.main.feels_like}°C`;
+      feelsLike.textContent = `Feels Like - ${data.main.feels_like.toFixed(
+        1
+      )}°C`;
       feelsLike.style.display = "block";
       wind.textContent = `${data.wind.speed} meter/sec`;
       pressure.textContent = `${data.main.pressure} hpa`;
@@ -154,16 +156,17 @@ async function gotLocation(position) {
         "Error! Please enter valid city name";
       document.querySelector(".error").style.display = "block";
     } else {
-      console.log(response);
       const data = await response.json();
-
-      temperature.textContent = `${data.main.temp}`;
+      console.log("data: ", data);
+      temperature.textContent = `${(data.main.temp - 273.15).toFixed(1)}°C`;
 
       cityName.textContent = data.name;
       cityName.style.display = "block";
       humidity.textContent = `${data.main.humidity}%`;
       weatherDesc.textContent = `${data.weather[0].description}`;
-      feelsLike.textContent = `Feels Like - ${data.main.feels_like}°C`;
+      feelsLike.textContent = `Feels Like - ${(
+        data.main.feels_like - 273.15
+      ).toFixed(1)}°C`;
       feelsLike.style.display = "block";
       wind.textContent = `${data.wind.speed} meter/sec`;
       pressure.textContent = `${data.main.pressure} hpa`;
